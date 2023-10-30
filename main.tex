@@ -1269,13 +1269,6 @@ D) Let $x = 2\sin t$, $y = 2 \cos t$, and $z = 1$.
 \dfn{Parametric Equations of a Line}{
   Through the point $\left(x_0, y_0, z_0\right)$ and parallel to the vector $\overrightarrow{a i}+\overrightarrow{b j}+\overrightarrow{c k}$ are
   $$ x=x_0+a t, \quad y=y_0+b t, \quad z=z_0+c t $$}
-\dfn{Parametric Equation of a Line in Vector Form}{
-  
-The line through the point with position vector $\overrightarrow{r_0}=x_0 \vec{i}+y_0 \vec{j}+z_0 \vec{k}$ in the direction of the vector $\vec{v}=\overrightarrow{a i}+\overrightarrow{b j}+\overrightarrow{c k}$ has parametric equation
-$$
-\vec{r}(t)=\overrightarrow{r_0}+\overrightarrow{t v}
-$$
-}
 \qs{}{
   A) Find parametric equations for the line in the direction of $3 \vec{\imath}-3 \vec{\jmath}+\vec{k} \text { through }(1,2,3) $ \\
   B) Find parametric equations for the line parallel to the $z \text {-axis through }(1,0,0) $
@@ -1283,6 +1276,66 @@ $$
 \sol\\
 A) We can say the direction vector is the rate of change per $t$. Such that $x = 1+3t$, $y = 2-3t$, and $z = 3+t$. \\
 B) $x = 1 + 0t$, $y = 0 + 0t$, and $z = 0 + 1t$.
+\qs{}{
+  Find parametric equations for the line through the points $(2,3,-1) \text { and }(5,2,0)$
+}
+\sol We find the vector $\vec{v} = <3,-1,1>$, using the point (2,3,-1), $x = 2+3t$, $y=3-t$, $-1+t$. \\
+If all we wanted was the line segment between the points, we could keep $0 \le t \le 1$. \\
+If we wanted to reverse the direction we can make the vector negative, $\vec{v} = <-3,1,-1>$.
+\dfn{Parametric Equation of a Line in Vector Form}{
+  The line through the point with position vector $\overrightarrow{r_0}=x_0 \vec{i}+y_0 \vec{j}+z_0 \vec{k}$ in the direction of the vector $\vec{v}=\overrightarrow{a i}+\overrightarrow{b j}+\overrightarrow{c k}$ has parametric equation
+  $$ \vec{r}(t)=\overrightarrow{r_0}+\overrightarrow{t v} $$
+}
+\ex{Helix Vector Function}{
+  In the helix example we have $x = \cos t$, $y = \sin t$, and $z = t$. \\
+  Such that, $\vec{r} (t) = (\cos t) \ihat + (\sin t) \jhat + (t) \khat$ \\
+  We can say that the output is the position vector of said output point from the origin.
+}
+\qs{}{
+  Are the lines given parallel? Do they intersect? \\
+  Line 1: $x=-1+t \quad y=1+2 t \quad z=5-t$ \\
+  Line 2: $x=2+2 t \quad y=4+t \quad z=3+t$
+}
+\sol \\
+In line 1: $\vec{r}(t) = <-1,1,5> + t<1,2,-1>$ \\
+In line 2: $\vec{r}(t) = <2,4,3> + t<2,1,1>$ \\
+We know that for lines to be parallel the direction vectors must be constant multiples of each other, therefore, they are not parallel.
+\double
+Accounting for different $t$ values, \\
+$-1 +t_1 = 2+2t_2$, $1+2t=4t_2$, and $5-t_1=3+t_2$. \\
+Solving for one linear equation we get, $t_1 = 1$ and $t_2 = 2$. \\
+However, we can see that the lines do not intersect, because the $z$ values are different.
+\dfn{Parameterization of Surfaces}{
+  In general, we will have
+  $$ x=f_1(s, t) \quad y=f_2(s, t) \quad z=f_3(s, t) $$
+or write it using position vectors as
+$$ \overrightarrow{\mathrm{r}}(s, t)=f_1(s, t) \vec{\imath}+f_2(s, t) \vec{\jmath}+f_3(s, t) \vec{k} $$
+}
+\qs{}{
+  A) Parameterize a cylinder of radius 3 , with central axis the $z$-axis. \\
+  B) Parameterize the lower part of the hemisphere $x^2+y^2+z^2=9$.
+}
+\sol \\
+A) We define $x=3\cos t$, $y=3 \sin t$, and $z = s$ (as to not create a spiral). \\
+B) The lazy way we can say that $x=s$, $y=t$, and $z=-\sqrt{9-x^2-y^2}$. \\
+For spherical coordinates, $x=3 \sin \phi \cos \theta$, $y=3 \sin \phi \sin \theta$, and $z=3 \cos \phi$. Where $\frac{\pi}{2} \le \phi \le \pi$ and $0 \le \theta \le 2\pi$.
+\dfn{Parameterizating Planes}{
+  The plane through the point with position vector $\vec{r}_0$ and containing the two nonparallel vectors $\vec{v}_1$ and $\vec{v}_2$ has parameterization
+  $$ \vec{r}(s, t)=\vec{r}_0+s \vec{v}_1+t \vec{v}_2 $$
+}
+\qs{}{
+  A) Give parametric equations for the plane through the point with position vector $\vec{r}_0$ and containing the vectors $\vec{v}_1$ and $\vec{v}_2$.
+  $$ \vec{r}_0=\vec{i}+\vec{j}+\vec{k}, \vec{v}_1=\vec{i}-\vec{k}, \vec{v}_2=-\vec{j}+\vec{k} $$
+  B) Parameterize the plane that contains the three points
+  $$ (1,2,3),(2,5,8),(5,2,0)$$
+}
+\sol \\
+A) We can say initial is $<1,1,1>$, $\vec{v_1} = <1,0,-1>$ and $\vec{v_2} = <0,-1,1>$. \\
+$x = 1 + s$, $y = 1 - t$, and $z = 1 - s + t$. \\
+Defining the vector valued function: $\vec{r}(s,t) = (1+s)\ihat + (1-t)\jhat + (1-s+t)\khat$
+\double
+B) Let $\vec{v_1} = <1,3,5>$ and $\vec{v_2} = <4,0,-3>$. Using (1,2,3) as $\vec{r_0} = <1,2,3>$. \\
+$x = 1 + t + 4s$, $y = 2 + 3t$, and $z = 3 + 5t - 3s$. \\
 \subsection{Change of Coordinates in a Multiple Integral}
 \dfn{Change of Variables and Jacobian}{
   The Jacobian of the transformation $x=g(u, v), y=h(u, v)$ iss 
