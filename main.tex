@@ -1336,17 +1336,64 @@ Defining the vector valued function: $\vec{r}(s,t) = (1+s)\ihat + (1-t)\jhat + (
 \double
 B) Let $\vec{v_1} = <1,3,5>$ and $\vec{v_2} = <4,0,-3>$. Using (1,2,3) as $\vec{r_0} = <1,2,3>$. \\
 $x = 1 + t + 4s$, $y = 2 + 3t$, and $z = 3 + 5t - 3s$. \\
-\subsection{Change of Coordinates in a Multiple Integral}
-\dfn{Change of Variables and Jacobian}{
-  The Jacobian of the transformation $x=g(u, v), y=h(u, v)$ iss 
-  $$
-  \frac{\partial(x, y)}{\partial(u, v)}=\left|\begin{array}{ll}
-  \frac{\partial x}{\partial u} & \frac{\partial x}{\partial v} \\
-  \frac{\partial y}{\partial u} & \frac{\partial y}{\partial v}
-  \end{array}\right|=\frac{\partial x}{\partial u} \frac{\partial y}{\partial v}-\frac{\partial x}{\partial v} \frac{\partial y}{\partial u}
-  $$
-  Suppose that we want to integrate $f(x, y)$ over the region $R$. Under the transformation $x=g(u, v), y=h(u, v)$ the region becomes $S$ and the integral becomes,
-$$ \iint_R f(x, y) d A=\iint_S f(g(u, v), h(u, v))\left|\frac{\partial(x, y)}{\partial(u, v)}\right| d \bar{A} $$
-where $d \bar{A}$ is the area element in the $u v$-plane.
+\subsection{Motion, Velocity, Acceleration}
+We can define the instantaneous velocity as $\vec{v}(t) = \lim_{\Delta t \to 0} \dfrac{\Delta \vec{r}}{\Delta r} = \dfrac{\vec{r}(t+\Delta t) - \vec{r}(t)}{\Delta t}$. Such that $\nabla (t) = \vec{r}'(t) = \dfrac{d\vec{r}}{dt}$. \\
+\dfn{The Velocity \& Acceleration Vector}{
+- The magnitude of $\vec{v}$ is the speed of the object. \\
+- The direction of $\vec{v}$ is the direction of motion. \\
+Thus, the speed of the object is $\|\vec{v}\|$ and the velocity vector is tangent to the object's path.
+\imgg{dfn17.5}{0.5}
+$$ \vec{v}(t) = \vec{r}'(t) = <f'(t),g'(t),h'(t)> = <\frac{dx}{dt}, \frac{dy}{dt}, \frac{dz}{dt}>$$
+$$ \vec{a}(t) = <f''(t),g''(t),h''(t)> = <\frac{d^2x}{dt^2}, \frac{d^2y}{dt^2}, \frac{d^2z}{dt^2}>$$
+}
+\qs{}{
+Find the velocity and acceleration vectors.
+$$ x=2+3 t^2, y=4+t^2, z=1-t^2 $$
+}
+\sol \\
+$\vec{r}(t) = <2+3t^2,4+t^2,1-t^2>$, such that $\vec{v} = <6t,2t,-2t>$ and $\vec{a} = <6,2,-2>$.
+\qs{}{
+Find the velocity vector, the speed, and the times at which the particle stops.
+$$ x=3 \sin ^2 t, y=\cos t-1, \quad z=t^2 $$
+}
+\sol \\
+$\vec{v}(t) = <6\sin t \cos t, -\sin t, 2t>$, such that $||\vec{v}|| = \sqrt{36 \sin^2 t \cos^2 t + \sin^2 t + 4t^2}$. \\
+We could set each component of the velocity vector to 0 to determine when the particle stops. \\
+Where $6\sin t \cos t =0$, $t=n\pi$ and $t=(2n+1)\frac{\pi}{2}$, $n \in \ZZ$. \\
+$-\sin t = 0$, $t=pi$ and $2t = 0$, $t=0$. \\
+Such that all values are 0 at $t=0$.
+\qs{}{
+  A particle moves on a circle of radius $5 \mathrm{~cm}$, centered at the origin, in the $x y$-plane ( $x$ and $y$ measured in centimeters). It starts at the point $(0,5)$ and moves counterclockwise, going once around the circle in 8 seconds. \\
+  (a) Write a parameterization for the particle's motion. \\
+  (b) What is the particle's speed? Give units.
+}
+\sol \\
+Let $x = -5 \sin t$ and $y = \cos t$. Where $y= a\sin bt$, we know that period is $T = \frac{2\pi}{b}$. Such that $8 = \frac{2\pi}{b} \implies b = \frac{\pi}{4}$.
+We can say that $x = -5 \sin \frac{\pi}{4} t$ and $y = 5 \cos \frac{\pi}{4} t$. Or $\vec{r}(t) = <-5 \sin \frac{\pi}{4} t, 5 \cos \frac{\pi}{4} t>$. \\
+Finding velocity, $\vec{v}(t) = <-5 \frac{\pi}{4} \cos \frac{\pi}{4} t, -5 \frac{\pi}{4} \sin \frac{\pi}{4} t>$. The speed $||\vec{v}|| = \frac{5\pi}{4}$ cm/s counterclockwise. \\
+A simpler way, we can say the distance around the circle is $2\pi r = 10\pi$ cm. Such that the speed is $\frac{10\pi}{8} = \frac{5\pi}{4}$ cm/s.
+\dfn{Uniform Circular Motion}{
+For a particle whose motion is described by $\vec{r}(t)=R \cos (\omega t) \vec{i}+R \sin (\omega t) \vec{j}$ \\
+- Motion is in a circle of radius $R$ with period $2 \pi /|\omega|$. \\
+- Velocity, $\vec{v}$, is tangent to the circle and speed is constant $\|\vec{v}\|=|\omega| R$. \\
+- Acceleration, $\vec{a}(t)$, points toward the center of the circle with $\|\vec{a}\|=\|\vec{v}\|^2 / R$.
+}
+\dfn{Motion in a Straight Line}{
+For a particle whose motion is described by $\vec{r}=\vec{r}_0+t \vec{v}$. \\
+- Motion is along a straight line through the point with position vector $\vec{r}_0$ parallel to $\vec{v}$. \\
+- Velocity, $\vec{v}$, and acceleration, $\vec{a}$, are parallel to the line.
+}
+\qs{}{
+  A particle starts at the point $P=(3,2,-5)$ and moves along a straight line toward $Q=(5,7,-2)$ at a speed of $5 \mathrm{~cm} / \mathrm{sec}$. Let $x, y, z$ be measured in centimeters. \\
+  (a) Find the particle's velocity vector. \\
+  (b) Find parametric equations for the particle's motion.
+}
+\sol \\
+$\vec{PQ} = <2,5,3> = \vec{v}(t)$. Such that $\vec{r}_0 + t \vec{v} = <3,2,-5> + t<2,5,3> = <3+2t,2+5t,-5+3t>$ \\
+But, the $||v|| = \sqrt{38} \ne 5$. So we have to unitize, $\vec{u} = \vec{v}(t) = <\frac{10}{\sqrt{28}}, \frac{25}{\sqrt{28}}, \frac{15}{\sqrt{28}}>$. \\
+Therefore, $\vec{r}(t) = <3,2,-5> + t<\frac{10}{\sqrt{28}}, \frac{25}{\sqrt{28}}, \frac{15}{\sqrt{28}}>$.
+\dfn{The Length of a Curve}{
+  $$\text{distance} = \int_a^b ||\vec{v}(t)|| dt = C$$
+  If the particle doesn't stop and reverse direction than direction = length of the curve.
 }
 \end{document}
