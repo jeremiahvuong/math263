@@ -1396,4 +1396,55 @@ Therefore, $\vec{r}(t) = <3,2,-5> + t<\frac{10}{\sqrt{28}}, \frac{25}{\sqrt{28}}
   $$\text{distance} = \int_a^b ||\vec{v}(t)|| dt = C$$
   If the particle doesn't stop and reverse direction than direction = length of the curve.
 }
+\qs{}{
+  Find the length of the curve \\
+  A) $x=5 \cos t, y=5 \sin t \quad 0 \leq t \leq 2 \pi$ \\
+  B)$x=3+5 t, \quad y=1+4 t, \quad z=3-t \quad 1 \leq t \leq 2$
+}
+\sol \\
+A) $L = \int_0^{2\pi} \sqrt{25\sin^2 t + 25 \cos^2 t} dt = 10\pi$. We could also say $C = 2\pi r = 10\pi$.
+\double
+B) $\vec{v} = <5,4,-1>$, such that $L = \int_1^2 \sqrt{25+16+1} dt = \sqrt{42}$
+\qs{}{
+  Suppose $\vec{r}(t)=\cos t \vec{i}+\sin t \vec{j}+2 t \vec{k}$ represents the position of a particle on a helix, where $z$ is the height of the particle above the ground. \\
+(a) Is the particle ever moving downward? When? \\
+(b) When does the particle reach a point 10 units above the ground? \\
+(c) What is the velocity of the particle when it is 10 units above the ground? \\
+(d) When it is 10 units above the ground, the particle leaves the helix and moves along the tangent. Find parametric equations for this tangent line.
+}
+\sol \\
+a) If $t>0 \implies 2t>0$, always moving up. I.E. the derivative of the $\khat$ component is $2>0$. \\
+b) $2t = 10 \implies t = 5$. \\
+c) $\vec{v}(t)= <-\sin t, \cos t, 2>$, such that $\vec{v}(5) = <-\sin 5, \cos 5, 2>$ \\
+d) at $t=5$, $\vec{r}(5) = <\cos 5, \sin 5, 10> = \vec{r_0}$, such that $<\cos 5, \sin 5, 10> + (t-5)<-\sin 5, \cos 5, 2>$. \\
+$x = \cos 5 - (\sin 5) (t-5)$, $y = \sin 5 + (\cos 5) (t-5)$, and $z = 10 + 2(t-5)$.
+
+\subsection{Vector Fields}
+\dfn{Vector Field}{
+  A vector field in 2-space is a function $\vec{F}(x, y)$ whose value at a point $(x, y)$ is a 2-dimensional vector. Similarly, a vector field in 3 -space is a function $\vec{F}(x, y, z)$ whose values are 3 -dimensional vectors.
+}
+\nt{
+  Notice the arrow over the function, $\vec{F}$, indicating that its value is a vector, not a scalar. We often represent the point $(x, y)$ or $(x, y, z)$ by its position vector $\vec{r}$ and write the vector field as $\vec{F}(\vec{r})$.
+}
+\qs{}{
+  Sketch the vector field in 2 -space given by $\vec{F}(x, y)=x \vec{j}$
+}
+\sol In notebook.
+\qs{}{
+  A) $\vec{F}(x, y)=x \vec{\imath}+y \vec{\jmath}$ \\
+  B) How is the vector field $\vec{F}(x, y)=\frac{x \vec{\imath}+y \vec{\jmath}}{\sqrt{x^2+y^2}}$ different from the one above?
+}
+\sol In notebook.\\
+A is often written as $\vec{F}(\vec{r}) = \vec{r}$ and B as $\vec{F}(\vec{r}) = \frac{\vec{r}}{||\vec{r}||}$
+\qs{}{
+  Sketch the vector field in 2-space given by $F(x, y)=-y \ihat+x \jhat$
+}
+\sol Sketch in notebook. Looking at $||\vec{F}|| = \sqrt{y^2 +x^2}$; the distance from the origin. Such that drawing a circle on the graph, all the vectors inside that circle are the same length. Therefore as we move away from the origin, the vectors get longer.
+The direction of $\vec{F}$ at each point is orthoginal to the position vector. $\vec{F} \cdot \vec{r} = 0$.
+\subsection{The Flow of a Vector Field}
+\dfn{Flow Line (aka integral curve, streamline)}{
+  A flow line of a vector field $\vec{v}=\vec{F}(\vec{r})$ is a path $\vec{r}(t)$ whose velocity vector equals $\vec{v}$. Thus,
+  $$ \vec{r}^{\prime}(t)=\vec{v}=\vec{F}(\vec{r}(t))$$
+  The flow of a vector field is the family of all of its flow lines.
+}
 \end{document}
