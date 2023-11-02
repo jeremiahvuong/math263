@@ -1365,7 +1365,7 @@ Such that all values are 0 at $t=0$.
 \qs{}{
   A particle moves on a circle of radius $5 \mathrm{~cm}$, centered at the origin, in the $x y$-plane ( $x$ and $y$ measured in centimeters). It starts at the point $(0,5)$ and moves counterclockwise, going once around the circle in 8 seconds. \\
   (a) Write a parameterization for the particle's motion. \\
-  (b) What is the particle's speed? Give units.
+  (b) What is the particle's speed? Give units. 
 }
 \sol \\
 Let $x = -5 \sin t$ and $y = \cos t$. Where $y= a\sin bt$, we know that period is $T = \frac{2\pi}{b}$. Such that $8 = \frac{2\pi}{b} \implies b = \frac{\pi}{4}$.
@@ -1444,7 +1444,46 @@ The direction of $\vec{F}$ at each point is orthoginal to the position vector. $
 \subsection{The Flow of a Vector Field}
 \dfn{Flow Line (aka integral curve, streamline)}{
   A flow line of a vector field $\vec{v}=\vec{F}(\vec{r})$ is a path $\vec{r}(t)$ whose velocity vector equals $\vec{v}$. Thus,
-  $$ \vec{r}^{\prime}(t)=\vec{v}=\vec{F}(\vec{r}(t))$$
-  The flow of a vector field is the family of all of its flow lines.
+  \begin{align*}
+    \vec{r}^{\prime}(t) &=\vec{F}(\vec{r}(t)) \\
+    <x'(t),y'(t)> &= <F_1(x(t),y(t)),F_2(x(t),y(t))> \\
+    & \implies \frac{dx}{dt} = F_1 \quad \frac{dy}{dt} = F_2
+  \end{align*}
 }
+\qs{}{
+  Given the vector field $\vec{v}=3 \vec{\imath}-2 \vec{\jmath}$ \\
+  A) Sketch the vector field. \\
+  B) Sketch its flow lines. \\
+  C) Find the flow line that passes through the point $(4,2)$ at time $t=0$
+}
+\sol \\
+A and B in notebook.
+\qs{}{
+The velocity of a flow at the point $(x, y)$ is $\vec{F}(x, y)=\vec{i}+x \vec{j}$. Find the path of motion of an object in the flow that is at the point $(-2,2)$ at time $t=0$.
+}
+\sol \\
+We get $\frac{dx}{dt} = 1$ and $\frac{dy}{dt} = x$. Such that $x = t-2 \implies \frac{dy}{dt} = (t-2)$, therefore $y=\frac{t^2}{2}-2t+2$.
+\qs{}{
+  Check that the flow satisfies the system.\\
+A)
+$$\begin{aligned}
+& \vec{v}=-y \vec{i}+x \vec{j} . \\
+& x(t)=a \cos t, \quad y(t)=a \sin t
+\end{aligned}$$
+B)
+$$\vec{v}=x \vec{i}-y \vec{j} ; \quad x(t)=a e^t, y(t)=b e^{-t}$$
+}
+\sol \\ 
+A)
+\begin{align*}
+  x(t) &= a \cos t\\
+  \frac{dx}{dt} &= -a \sin t \\
+  \frac{dx}{dt} &= -y
+\end{align*}
+\begin{align*}
+  y(t) &= a \sin t\\
+  \frac{dy}{dt} &= a \cos t \\
+  \frac{dy}{dt} &= x
+\end{align*}
+B) In notebook
 \end{document}
