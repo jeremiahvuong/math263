@@ -1486,4 +1486,95 @@ A)
   \frac{dy}{dt} &= x
 \end{align*}
 B) In notebook
+\section{Line Integrals}
+\subsection{The Idea of a Line Integral}
+Consider a vector field $\vec{F}$ and an oriented curve $C$. We begin by dividing $C$ into $n$ small, almost straight pieces along which $\vec{F}$ is approximately constant. Each piece can be represented by a displacement vector $\Delta \vec{r}_i=\vec{r}_{i+1}-\vec{r}_i$ and the value of $\vec{F}$ at each point of this small piece of $C$ is approximately $\vec{F}\left(\vec{r}_i\right)$.
+\imgg{dfn18.1}{0.5}
+The curve $C$, oriented from $P$ to $Q$, approximated by straight line segments represented by displacement vectors
+\imgg{dfn18.1.1}{0.5}
+\dfn{Line Integral}{
+  The line integral of a vector field $\vec{F}$ along an oriented curve $C$ is
+  $$
+  \int_C \vec{F} \cdot d \vec{r}=\lim _{\left\|\Delta \vec{r}_i\right\| \rightarrow 0} \sum_{i=0}^{n-1} \vec{F}\left(\vec{r}_i\right) \cdot \Delta \vec{r}_i
+  $$
+}
+\nt{
+  $||\vec{F}||$ is constant
+  -
+}
+\qs{}{
+  Consider the vector field $\vec{F}$ shown below, together with the paths $C_1, C_2$, and $C_3$. Arrange the line integrals $\int_{C_1} \vec{F} \cdot d \vec{r}, \int_{C_2} \vec{F} \cdot d \vec{r}$ and $\int_{C_3} \vec{F} \cdot d \vec{r}$ in ascending order.
+  \imgg{qs18.1}{0.5}
+}
+\sol \\
+$\int_{C_1} \vec{F} \cdot d \vec{r} = 0$  as $C_1$ is orthoginal to v.f. \\
+$\int_{C_2} \vec{F} \cdot d \vec{r} = +$  as $C_2$ and v.f. are rougly in the same direction. \\
+$\int_{C_3} \vec{F} \cdot d \vec{r} = -$  as $C_3$ and v.f. point in clearly the opposite direction. \\
+$C_3 < C_1 < C_2$.
+\qs{}{
+  Put the line integral for $C_i$ in ascending order.
+$$
+\int_C \vec{F} \cdot d \vec{r}
+$$
+\imgg{qs18.2}{0.5}
+}
+\sol \\
+$\int_{C_1} \vec{F} \cdot d \vec{r} = +$; same direction \\
+$\int_{C_2} \vec{F} \cdot d \vec{r} = +$; same direction \\
+$\int_{C_3} \vec{F} \cdot d \vec{r} = +$; same direction \\
+$\int_{C_4} \vec{F} \cdot d \vec{r} = -$; opposite direction \\
+Comparing the length of the curve, such that we have more infentesimal pieces of curve:
+$ C_4 < C_1 < C_3 < C_2$
+\qs{}{
+  Is the value of the line integral of the pictured vector field over the given curve, positive, negative or zero?
+  \imgg{qs18.3}{0.5}
+}
+\sol \\
+Throwback to electromagnetism, we have spherical symmetry such that it is 0.
+\qs{}{
+  Calculate the line integral of the vector field along the line between the given points.
+A) $\vec{F}=x \vec{j}, \quad$ from $(1,0)$ to $(3,0)$ \\
+B) $\vec{F}=6 x \vec{i}+\left(x+y^2\right) \vec{j} ; C$ is the $y$-axis from $(0,3)$ to $(0,5)$.
+}
+\sol \\
+A) We have $\vec{F}\cdot \Delta \vec{r}$, where $\vec{F} = <0,x>$ and $\Delta \vec{r} = <\Delta x,0> = 0$ We define $d\vec{r}$ as $dx$ as it is just infentesimal pieces on the x axis.
+\double
+B)In notebook.
+\qs{}{
+  Give conditions on the constants so that the line integral below has the stated sign. Negative for $\vec{F}=b \vec{j}+c \vec{k}$ and $C$ is the parabola $y=x^2$ in the $x y$-plane from the origin to $(3,9,0)$.
+}
+\sol In notebook.
+\qs{}{
+  The force $\vec{F}=x \vec{\imath}+y \vec{\jmath}$ moves an object along a line from $(2,0)$ to $(6,0)$, find the work done by the force.
+}
+\sol In notebook.
+\nt{
+  For a scalar constant $\lambda$, vector fields $\vec{F}$ and $\vec{G}$, and oriented curves $C_1 C_1$, and $C_2$ \\
+1. $\int_C \lambda \vec{F} \cdot d \vec{r}=\lambda \int_C \vec{F} \cdot d \vec{r}$. \\
+2. $\int_C(\vec{F}+\vec{G}) \cdot d \vec{r}=\int_C \vec{F} \cdot d \vec{r}+\int_C \vec{G} \cdot d \vec{r}$. \\
+3. $\int_{-C} \vec{F} \cdot d \vec{r}=-\int_C \vec{F} \cdot d \vec{r}$. \\
+4. $\int_{C_1+C_2} \vec{F} \cdot d \vec{r}=\int_{C_1} \vec{F} \cdot d \vec{r}+\int_{C_2} \vec{F} \cdot d \vec{r}$.
+}
+\qs{}{
+  In Problems 47-50, $C_1$ and $C_2$ are oriented curves, and $C_1$ ends where $C_2$ begins. Find the integral given that $\int_{C_1} \vec{F}$. $d \vec{r}=8, \int_{C_1} \vec{G} \cdot d \vec{r}=3, \int_{C_2} \vec{F} \cdot d \vec{r}=-5$, and $\int_{C_2} \vec{G} \cdot d \vec{r}=$ 15.
+$$
+\int_{C_1+C_2}(\vec{G}-\vec{F}) \cdot d \vec{r}
+$$
+}
+\sol In notebook.
+\qs{}{
+  Along a curve $C$, a vector field $F$ is everywhere tangent to $C$ in the direction of orientation and has constant magnitude $\|\vec{F}\|=m$. Use the definition of the line integral to explain why
+$$
+\int_C \vec{F} \cdot d \vec{r}=m \cdot \text { Length of } C .
+$$
+}
+\sol\\
+Where:
+\begin{align*}
+\int_C \vec{F} \cdot d \vec{r} &=\lim _{\left\|\Delta \vec{r}_i\right\| \rightarrow 0} \sum_{i=0}^{n-1} \vec{F}\left(\vec{r}_i\right) \cdot \Delta \vec{r}_i \\
+&= \lim _{\left\|\Delta \vec{r}_i\right\| \rightarrow 0} \sum_i ||\vec{F}(\vec{r_i})|| ||\Delta \vec{r}_i|| \cos \theta \\
+& \text{The line between the infentesimal peice and $\vec{F}$ is 0} \\
+&= \lim _{\left\|\Delta \vec{r}_i\right\| \rightarrow 0} \sum_i m ||\Delta \vec{r}_i|| \cos 0 \\
+&= m \cdot \text { Length of } C
+\end{align*}
 \end{document}
