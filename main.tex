@@ -1577,4 +1577,161 @@ Where:
 &= \lim _{\left\|\Delta \vec{r}_i\right\| \rightarrow 0} \sum_i m ||\Delta \vec{r}_i|| \cos 0 \\
 &= m \cdot \text { Length of } C
 \end{align*}
+\subsection{Computing Line Integrals Over Parameterized Curves}
+At each point $\vec{r}_i=\vec{r}\left(t_i\right)$ we want to compute
+$$
+\vec{F}\left(\vec{r}_i\right) \cdot \Delta \vec{r}_i
+$$
+
+Since $t_{i+1}=t_i+\Delta t$, the displacement vectors $\Delta \vec{r}_i$ are given by
+$$
+\begin{aligned}
+\Delta \vec{r}_i & =\vec{r}\left(t_{i+1}\right)-\vec{r}\left(t_i\right) \\
+& =\vec{r}\left(t_i+\Delta t\right)-\vec{r}\left(t_i\right) \\
+& =\frac{\vec{r}\left(t_i+\Delta t\right)-\vec{r}\left(t_i\right)}{\Delta t} \cdot \Delta t \\
+& \approx \vec{r}^{\prime}\left(t_i\right) \Delta t
+\end{aligned}
+$$
+where we use the facts that $\Delta t$ is small and that $\vec{r}(t)$ is differentiable to obtain the last approximation.
+Therefore,
+$$
+\int_C \vec{F} \cdot d \vec{r} \approx \sum \vec{F}\left(\vec{r}_i\right) \cdot \Delta \vec{r}_i \approx \sum \vec{F}\left(\vec{r}\left(t_i\right)\right) \cdot \vec{r}^{\prime}\left(t_i\right) \Delta t
+$$
+$$
+\lim _{\Delta t \rightarrow 0} \sum \vec{F}\left(\vec{r}\left(t_i\right)\right) \cdot \vec{r}^{\prime}\left(t_i\right) \Delta t=\int_a^b \vec{F}(\vec{r}(t)) \cdot \vec{r}^{\prime}(t) d t
+$$
+\dfn{Computing Line Integrals}{
+  If $\vec{r}(t)$, for $a \leq t \leq b$, is a smooth parameterization of an oriented curve $C$ and $\vec{F}$ is a vector field which is continuous on $C$, then
+$$
+\int_C \vec{F} \cdot d \vec{r}=\int_a^b \vec{F}(\vec{r}(t)) \cdot \vec{r}^{\prime}(t) d t .
+$$
+
+In words: To compute the line integral of $\vec{F}$ over $C$, take the dot product of $\vec{F}$ evaluated on $C$ with the velocity vector, $\vec{r}^{\prime}(t)$, of the parameterization of $C$, then integrate along the curve.
+}
+\qs{}{
+Compute
+$$ \int_C \vec{F} \cdot d \vec{r} $$
+For the given vector fields and curves given.\\
+A) $\vec{F}=-y \vec{i}+x \vec{j}+5 \vec{k}$ and $C$ is the helix $x=\cos t, y=$ $\sin t, z=t$, for $0 \leq t \leq 4 \pi$.\\
+B) $\vec{F}=y \vec{i}-x \vec{j}$ and $C$ is the right-hand side of the unit circle, starting at $(0,1)$.
+}
+\sol \\
+A) \\
+1. $C$ is already parameterized $\vec{r}(t) = <\cos t, \sin t, t>$ \\
+2. $\vec{F} = <-y, x, 5> = <-\sin t, \cos t, 5>$ \\
+3. $\vec{r}'(t) = <-\sin t, \cos t, 1>$ \\
+4. $\int^{4\pi}_0 <-\sin t, \cos t, 5> \cdot <-\sin t, \cos t, 1> dt = 24\pi$
+\double
+B) \\
+1) We know that the parameterization is the right half of the unit circle clockwise.
+Such that we can say $x = \sin t$, $y=\cos t$, and $0 \leq t \leq \pi$. Or $\vec{r}(t) = <\sin t, \cos t>$\\
+2) $\vec{F} = <y, -x> = <\cos t, -\sin t>$ \\
+3) $\vec{r}'(t) = <\cos t, -\sin t>$ \\
+4) $\int^{\pi}_0 <\cos t, -\sin t> \cdot <\cos t, -\sin t> dt = \pi$\\
+We can also revisit question 18.8 where we say that the vector field is tangent everywhere to a curve.
+Such that $||\vec{F}|| = \sqrt{y^2+x^2}$ we can say is $r$, where $r =1$ on the unit circle. \\
+Therefore, $\int_C \vec{F} \cdot d \vec{r} = m \cdot ||C||  = 1 \cdot \frac{2\pi}{2} = \pi$
+\nt{
+  Regardless of the parameterization, the line integral of a vector field $\vec{F}$ over a curve $C$ is the same. \\
+}
+\qs{}{
+$$ \text { Evaluate the line integral } \int_C \vec{F} \cdot d \vec{r} \text { for the vector field } \vec{F}=x(t) \vec{\imath}+y(t) \vec{\jmath} \text { over the curve shown. } $$
+\imgg{qs18.10}{0.6}
+}
+\sol In notebook.
+\qs{}{
+  Evaluate the line integral $\int_C \vec{F} \cdot d \vec{r}$ for $\vec{F}=x \vec{i}+6 \vec{j}-\vec{k}$, and $C$ is the line $x=y=z$ from $(0,0,0)$ to $(2,2,2)$.
+}
+\sol In notebook.
+\dfn{The Differential Notation for Line Integrals}{
+  $$\int_C = <P,Q,R> \cdot <dx,dy,dz> = \int_C Pdx + Qdy + Rdz$$
+}
+\qs{}{
+Evaluate the given Line Integral. \\
+A) $\int_C x d y$ where $C$ is the quarter circle centered at the origin going counterclockwise from $(2,0)$ to $(0,2)$.\\
+B) $\int_C x d x+z d y-y d z$ where $C$ is the circle of radius 3 in the $y z$-plane centered at the origin, oriented counterclockwise when viewed from the positive $x$-axis.
+}
+\sol In notebook.
+\qs{}{
+  Let $\vec{F}=-y \vec{i}+x \vec{j}$ and let $C$ be the unit circle oriented counterclockwise. \\
+(a) Show that $\vec{F}$ has a constant magnitude of 1 on $C$. \\
+(b) Show that $\vec{F}$ is always tangent to the circle $C$. \\
+(c) Show that $\int_C \vec{F} \cdot d \vec{r}=$ Length of $C$.
+}
+\sol In notebook.
+\subsection{Gradient Fields and Path-Independent Fields}
+\dfn{Fundamental Theorem of Line Integrals (FTL)}{
+  Suppose $\mathrm{C}$ is a piecewise smooth oriented path with starting point $P$ and ending point $Q$. If $f$ is a function whose gradient is continuous on the path $C$, then
+  $$ \int_C \nabla f \cdot d \vec{r}=f(Q)-f(P)$$
+}
+\myproof If we have $f(x,y,z)$ then $\nabla f = <f_x, f_y, f_z>$. Such that $\int_C \nabla f \cdot d \vec{r} = \int_a^b \nabla f (\vec{r}(t)) \cdot \vec{r}'(t) = \int_a^b (\del{f}{x} \frac{dx}{dt} + \del{f}{y} \frac{dy}{dt} + \del{f}{z} \frac{dz}{dt}) dt = \int_a^b [f(\vec{r}(t))] dt = f(\vec{r}(b)) - f(\vec{r}(a)) \qed$
+\nt{
+  If we want the change in a function $f$ along the path $C$, all we need is f(end) - f(beg), provided that $f$ is a potential function.
+  \\ A potential function is a function $f$ such that $\nabla f = \vec{F}$.
+  \\ a gradient v.f. $(\vec{F} = \nabla f)$ is path-Independent/conservative.
+}
+\qs{}{
+  Let $f(x, y)=x^2+y^2$, and let $C$ be the portion of the parabola $y=x^2$ that starts at $(0,0)$ and ends at $(1,1)$. Calculate $\int_C \nabla f \cdot d \vec{r}$ in two different ways: (a) without using the Fundamental Theorem of Line Integrals, and (b) using the Fundamental Theorem of Line Integrals.
+}
+\sol in notebook.
+\qs{}{
+  Decide if the vector field can be a gradient vector field.
+$$
+\vec{G}(x, y)=\left(x^2-y^2\right) \vec{i}-2 x y \vec{j}
+$$
+}
+\sol In notebook
+\qs{}{
+  Use the Fundamental Theorem of Line Integrals to calculate $\int_C \vec{F} \cdot d \vec{r}$ exactly.
+$\vec{F}=(2 x+y) \vec{i}+(x+2 y) \vec{j}$, and $C$ is the quarter circle of radius 2 , centered at the origin, starting at $(2,0)$ and ending at $(0,2)$.
+}
+\sol In notebook.
+\qs{}{
+  Let $\vec{F}(x, y, z)=2 x y z \vec{i}+\left(x^2 z+\mathrm{e}^z\right) \vec{j}+\left(x^2 y+y \mathrm{e}^z+1\right) \vec{k}$, and let $C_1$ be the path from $(0,0,0)$ to $(1,1,1)$ shown in the figure to the right.
+Calculate $\int_{C_1} \vec{F} \cdot d \vec{r}$.
+}
+\qs{}{
+Does the vector field appear to be path-independent? \\
+Insert Image.
+}
+\sol \\
+A) No B) yes
+\qs{}{
+  (a) Figure 18.38 shows level curves of $f(x, y)$. Sketch a vector at $P$ in the direction of $\operatorname{grad} f$.\\
+  (b) Is the length of $\operatorname{grad} f$ at $P$ longer, shorter, or the same length as the length of $\operatorname{grad} f$ at $Q$ ?\\
+  (c) If $C$ is a curve going from $P$ to $Q$, find $\int_C \operatorname{grad} f$. $d \vec{r}$.
+}
+\sol C) $\int_C \operatorname{grad} f$. $d \vec{r} = 9-3 =6$
+\qs{}{
+  Let $\vec{F}=\operatorname{grad}\left(2 x^2+3 y^2\right)$. Which one of the three paths $P Q, Q R$, and $R S$ in Figure 18.32 should you choose as $C$ in order to maximize $\int_C \vec{F} \cdot d \vec{r}$ ?
+}
+\sol
+\subsection{Path-Dependent Vector Fields and Green's Theorem}
+\thm{}{
+  A vector field is path-independent if and only if $\int_C \vec{G} \cdot d \vec{r}=0$, for every closed curve $C$.
+}
+\myproof
+Assume that path independence implies $\int_C \vec{G} \cdot d \vec{r}=0$, for every closed curve $C$.
+We know that taking any two paths $C_1$ and $C_2$ will give us the same line integral.
+Where taking a path curve of $C$ such that we go against $C_2$, we obtain $\int_{C_1} \vec{G} \cdot d \vec{r} - \int_{C_2} \vec{G} \cdot d \vec{r} = 0 \qed/2$.
+\double
+Assume that $\int_C \vec{G} \cdot d \vec{r}=0$, for every closed curve $C$ implies path independence. 
+Such that taking $\int_{-C_2} \vec{G} \cdot d \vec{r} + \int_{C_1} \vec{G} \cdot d \vec{r} = 0 \implies \int_{C_2} \vec{G} \cdot d \vec{r} = \int_{C_1} \vec{G} \cdot d \vec{r}$
+Therefore $\vec{G}$ is path Independent as any two curves give us the same values. $\qed$
+\qs{}{
+  Is the vector field $\vec{F}=-y \vec{\imath}+x \vec{\jmath}$ path-dependent? \\
+  If we can find a potential function for $\vec{F}$ it will be path-independent, otherwise path-dependent.
+}
+\sol Where $\vec{F} = <-y,x>$ we try to find a potential function. $\int f_x =\int -y dx \implies f(x,y) = -yx +C(y)$ and $\int f_y = \int x dy \implies f(x,y) = xy + C(x)$.
+Combining the two, $f(x,y) = -yx + xy + C = C$. We can't find an $f$ such that $\nabla f = \vec{F}$, therefore $\vec{F}$ is path-dependent.
+\qs{}{
+  Is $\vec{F}$ a gradient field (i.e. path independent)? Check algebraically and if so, find a potential function $f$.\\
+  A) $\vec{F}=(x-y) \vec{\imath}+(x-2) \vec{\jmath}$ \\
+  B) $\vec{F}=<3+2 x y, x^2-3 y^2>$
+}
+\sol \\
+A) $\del{F_2}{x} = 1$ and $\del{F_1}{y} = -1$ such that $\del{F_2}{x} - \del{F_1}{y} = 1 + 1 = 2 \ne 0$. Path-dependent \\
+B) $\del{F_2}{x} = 2y$ and $\del{F_1}{y} = 2x$, where we have to go further to determine path independence.
+$\int f_x = \int (3+2xy) dx \implies f(x,y) = 3x+x^2 y + C(y)$ and $\int f_y = \int (x^2-3y^2) dy \implies f(x,y) = x^2 y -y^3 + C(x)$.
+Combining the two two create $f = 3x+x^2 y - y^3 + C$. Since $\vec{F} = \nabla f$ we know $\vec{F}$ is path-independent.
 \end{document}
