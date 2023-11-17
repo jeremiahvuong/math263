@@ -1730,4 +1730,39 @@ A) $\del{F_2}{x} = 1$ and $\del{F_1}{y} = -1$ such that $\del{F_2}{x} - \del{F_1
 B) $\del{F_2}{x} = 2y$ and $\del{F_1}{y} = 2x$, where we have to go further to determine path independence.
 $\int f_x = \int (3+2xy) dx \implies f(x,y) = 3x+x^2 y + C(y)$ and $\int f_y = \int (x^2-3y^2) dy \implies f(x,y) = x^2 y -y^3 + C(x)$.
 Combining the two two create $f = 3x+x^2 y - y^3 + C$. Since $\vec{F} = \nabla f$ we know $\vec{F}$ is path-independent.
+\dfn{Green's Theorem}{
+  Suppose $C$ is a piecewise smooth simple closed curve that is the boundary of a region $\mathrm{R}$ in the plane and oriented so that the region is on the left as we move around the curve. Suppose $\vec{F}=F_1 \vec{i}+F_2 \vec{j}$ is a smooth vector field on an open region containing $\mathrm{R}$ and $\mathrm{C}$. Then
+  $$ \oint_C \vec{F} \cdot d \vec{r}=\int_R\left(\frac{\partial F_2}{\partial x}-\frac{\partial F_1}{\partial y}\right) d x d y $$
+}
+\qs{}{
+  Use Green's Theorem to calculate the circulation of $\vec{F}$ around the curve oriented counterclockwise. \\
+  A) $\vec{F}=x y \vec{j}$ around the square $0 \leq x \leq 1,0 \leq y \leq 1$. \\
+  B) $\vec{F}=\left(2 x^2+3 y\right) \vec{i}+\left(2 x+3 y^2\right) \vec{j}$ around the triangle with vertices $(2,0),(0,3),(-2,0)$.
+}
+\sol \\
+A) We test the curl such that, $\del{F_2}{x} = y$ and $\del{F_1}{y}=0$.
+Such that $\oint_C \vec{F} \cdot d \vec{r} = \int_0^1 \int_0^1 (y-0) dx dy =1/2$
+\double
+B) $\del{F_2}{x} = 2$ and $\del{F_1}{y}=3$. Such that $\oint_C \vec{F} \cdot d \vec{r} = \int_0^1 \int_0^1 (2-3) dx dy = -1\cdot A_{\text{triangle}} = -(1/2)(4)(3) = -6$ 
+\double
+C) $\del{F_2}{x} = y$ and $\del{F_1}{y}=3$. Such that $\oint_C \vec{F} \cdot d \vec{r} = \int_0^{2\pi} \int_0^1 (y-3) dx dy = \int \int (r \sin \theta -3) r dr d\theta = -3\pi$
+\nt{
+Green's Thm can only be applied on closed curves AND it requires that the domain of $\vec{F}$ have no holes, to ensure $R$ inside $C$ is contained in the domain of $\vec{F}$.
+}
+\qs{}{
+  Given the vector field $\vec{F}=\frac{-y \vec{\imath}+x \vec{\jmath}}{x^2+y^2} \text {. Find } \int_C^{\mathrm{w}} \vec{F} \cdot d \vec{r}$ on the unit circle oriented counterclockwise.
+}
+\sol \\
+$\del{F_2}{x} = \frac{y^2-x^2}{(x^2+y^2)^2}$ and $\del{F_1}{y}= \frac{y^2-x^2}{(x^2+y^2)^2}$.
+We get that $\oint_C \vec{F} \cdot d \vec{r} = 0$, however we know from a visual that $\oint \vec{F} \cdot d\vec{r} = +\#$.
+Parameterizating, $\vec{r}(t) = <\cos t, \sin t>$, $0 \le t \le \pi$. \\
+$\vec{F}(\vec{r}(t)) = <-\sin t, \cos t>$ \\
+$\vec{r}'(t) = <-\sin t, cos t>$ \\
+$\int^{2\pi}_0 <-\sin t, \cos t> \cdot <-\sin t, \cos t> dt = 2\pi$
+\dfn{The Curl Test for Vector Fields in 2-Space}{
+  Suppose $F=F_1 \vec{i}+F_2 \vec{j}$ is a vector field with continuous partial derivatives, such that \\
+- The domain of $\vec{F}$ has the property that every closed curve in it encircles a region that lies entirely within the domain. In particular, the domain of $\vec{F}$ has no holes. \\
+- $\frac{\partial F_2}{\partial x}-\frac{\partial F_1}{\partial y}=0$ \\
+Then $\vec{F}$ is path-independent, so $\vec{F}$ is a gradient field and has a potential function.
+}
 \end{document}
