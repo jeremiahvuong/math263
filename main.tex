@@ -1825,5 +1825,59 @@ Such that $\vec{A} =\left\langle\frac{4}{\sqrt{3}}, \frac{4}{\sqrt{3}}, \frac{4}
 $\phi = \vec{F} \cdot \vec{A} = <1,2> \cdot \left\langle\frac{4}{\sqrt{3}}, \frac{4}{\sqrt{3}}, \frac{4}{\sqrt{3}}\right\rangle = \frac{12}{\sqrt{3}}$
 \qs{}{
   $\vec{F}=e^{y^2+z^2} \vec{i}$ through the disk of radius 2 in the $y z-$ plane, centered at the origin and oriented in the positive $x$-direction.
-}In Notebook.
+}
+\noindent
+In Notebook.
+\subsection{Flux Integrals for Graphs, Cylinders, and Spheres}
+\dfn{
+  $\text { The Flux of } \vec{F} \text { through a Surface given by a Graph of } z=f(x, y)$
+  }{
+    Suppose the surface $S$ is the part of the graph of $z=f(x, y)$ above a region $\mathrm{R}$ in the $x y$-plane, and suppose $\mathrm{S}$ is oriented upward. The flux of $\vec{F}$ through $\mathrm{S}$ is
+  $$ \int_S \vec{F} \cdot d \vec{A}=\int_R \vec{F}(x, y, f(x, y)) \cdot\left(-f_x \vec{i}-f_y \vec{j}+\vec{k}\right) d x d y $$
+  }
+% \myproof  
+\imgg{19.2}{0.5}
+We can look at an infentesimal bit of area that is formed from $\vec{v}$ and $\vec{u}$.
+Looking at the figure we can say that $\vec{u} = <\Delta x, 0, \Delta z>$ and $\vec{v} = <0, \Delta y, \Delta z>$.
+Where $f_x = \frac{\Delta Z}{\Delta x} \implies \Delta z = f_x \Delta x \implies \Delta z = f_y \Delta y$.
+We get $\vec{u} = <\Delta x, 0, f_x \Delta x>$ and $\vec{v} = <0, \Delta y, f_y \Delta y>$.
+Crossing the two $\vec{u} \times \vec{v} = <-\Delta y f_x \Delta x, -\Delta x f_y \Delta y, \Delta x \Delta y>$.
+We can say $\Delta \vec{A} = <-f_x,-f_y,1> \Delta x \Delta y$. Therefore $d\vec{A} = (-f_x \ihat - f_y \jhat + \khat) dx dy$
+\qs{}{
+  Calculate $\int_S \vec{F} \cdot d \vec{A}$ if $\vec{F}=x \vec{i}+(3 y-1) \vec{j}+z \vec{k}$ and $S$ is the portion of the plane $x+y+z=1$ that lies in the first octant, oriented upward
+}
+\sol \\
+We have the plane $z = 1-x-y$ such that $f_x = -1$ and $f_y = -1$. So $d\vec{A} = <1,1,1> dx dy$.
+$\vec{F} = <x,3y-1,1-x-y>$. Computing flux $\int_S \vec{F} \cdot d\vec{A} = \int_S <x,3y-1,1-x-y>\cdot<1,1,1> dx dy = \int \int 2y dx dy$.
+Projecting the surface on the $xy$-plane ($z$ to 0) we get $0=1-x-y \implies y=1-x$.
+Our bounds of integration are $\int_0^1 \int_0^{1-x} 2y dy dx = \frac{1}{3}$.
+\nt{If it was oriented downward, simply take the negative of this answer.}
+\qs{}{
+  Let $\vec{F}=y \vec{k}$, and let $S$ be the portion of the paraboloid $z=25-\left(x^2+y^2\right)$ that lies above the $x y$-plane, oriented upward. Find the flux of $\vec{F}$ through $S$.
+}
+\sol \\
+We have $z = 25 - (x^2+y^2) \implies f_x = -2x$ and $f_y = -2y$. So $d\vec{A} = <2x,2y,1> dx dy$.
+$\vec{F} = <0,0,y>$. Computing flux $\int_S \vec{F} \cdot d\vec{A} = \int_S <0,0,y>\cdot<2x,2y,1> dx dy = \int \int y dx dy$.
+Projecting the surface on the $xy$-plane ($z$ to 0) we get $0=25-(x^2+y^2) \implies x^2+y^2=25$ (a circle of $r = 5$).
+Our bounds of integration are $\int_0^{2\pi} \int_0^5 r \sin \theta r dr d\theta = 0$
+\dfn{}{
+  The flux of $\vec{F}$ through the cylindrical surface $\mathrm{S}$, of radius $\mathrm{R}$ and oriented away from the $z$-axis, is given by
+$$
+\int_S \vec{F} \cdot d \vec{A}=\int_T \vec{F}(R, \theta, z) \cdot(\cos \theta \vec{i}+\sin \theta \vec{j}) R d z d \theta .
+$$
+where $\mathrm{T}$ is the $\theta z$-region corresponding to $\mathrm{S}$.
+}
+\proof
+We can define an infentesmial bit of area as $dA = Rd\theta dz$.
+Where our normals of that area is radially outward, $\vec{n} = <\frac{x}{\sqrt{x^2+y^2}},\frac{y}{\sqrt{x^2+y^2}}> = <\cos \theta, \sin \theta>$.
+Such that $d\vec{A} = <\cos \theta, \sin \theta> R d\theta dz$.
+Therefore $\int_S \vec{F} d\vec{A} = \int \vec{F}(R, \theta, z) (\cos \theta \ihat + \sin \theta \jhat) R d\theta dz \qed$
+\qs{}{
+  Calculate the flux of the vector field $\vec{F}(x, y, z)=x z i+y z j+z^3 k$. through the portion of the cylindrical surface $x^2+y^2=1$ that is shown to the right, oriented inward. Note that $S$ includes only the cylinder, not the circular disks that form the top and bottom of the diagram to the right.
+}
+\sol
+We have a cylinder of radius 1, such that $d\vec{A} = <\cos \theta, \sin \theta> d\theta dz$.
+$\vec{F} = <xz,yz,z^3> = <\cos \theta z, \sin \theta z , z^3>$.
+$\int_S \vec{F} \cdot d\vec{A} = \int_S <z\cos \theta, z \sin \theta, z^3> \cdot <\cos \theta, \sin \theta, 0 > d\theta dz
+= \int_0^6 \int_0^{2\pi} z d\theta dz = 36\pi$ However our area vector is oriented inward so we take the opposite. $\phi = -36\pi$
 \end{document}
