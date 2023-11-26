@@ -1879,5 +1879,47 @@ Therefore $\int_S \vec{F} d\vec{A} = \int \vec{F}(R, \theta, z) (\cos \theta \ih
 We have a cylinder of radius 1, such that $d\vec{A} = <\cos \theta, \sin \theta> d\theta dz$.
 $\vec{F} = <xz,yz,z^3> = <\cos \theta z, \sin \theta z , z^3>$.
 $\int_S \vec{F} \cdot d\vec{A} = \int_S <z\cos \theta, z \sin \theta, z^3> \cdot <\cos \theta, \sin \theta, 0 > d\theta dz
-= \int_0^6 \int_0^{2\pi} z d\theta dz = 36\pi$ However our area vector is oriented inward so we take the opposite. $\phi = -36\pi$
+= \int_0^6 \int_0^{2\pi} z d\theta dz = 36\pi$ However our area vector is oriented inward so we take the opposite. $\Phi = -36\pi$
+\newpage
+\qs{}{
+Write an integral (do not evaluate) for the flux through the cylindrical surface $S$, centered on the $z$-axis and oriented away.
+$$ \vec{F}(x, y, z)=z^2 \vec{i}+e^x \vec{j}+\vec{k} $$
+$S$ : radius 6 , inside sphere of radius 10
+}
+\sol \\
+We can assume that the top and bottom are open. $d \vec{A} = (\cos \theta \ihat + \sin \theta \jhat) (6) dz d\theta$.
+$\vec{F} = <z^2, e^x, 1> = <z^2, e^{6\cos \theta}, 1>$. We have $\int_S \vec{F} \cdot d\vec{A} = \int \int <z^2, e^{6\cos \theta}, 1> \cdot <6\cos \theta, 6\sin \theta, 0> dz d\theta$.
+Finding the bounds of integration we have a cylinder $x^2+y^2=36$ and a sphere $x^2+y^2+z^2=100$ such that $36 +z^2 = 100 \implies z = \pm 8$.
+Therefore we have the flux integral $\int_{-8}^8 \int_0^{2\pi} (6z^2\cos \theta + 6 e^{6\cos \theta} \sin \theta) d\theta dz$.
+\dfn{The Flux of a Vector Field Through a Sphere}{
+  The flux of $\vec{F}$ through the spherical surface $S$, with radius $R$ and oriented away from the origin, is given by
+$$
+\begin{aligned}
+\int_S \vec{F} \cdot d \vec{A} & =\int_S \vec{F} \cdot \frac{\vec{r}}{\|\vec{r}\|} d A \\
+& =\int_T \vec{F}(R, \theta, \phi) \cdot(\sin \phi \cos \theta \vec{i}+\sin \phi \sin \theta \vec{j}+\cos \phi \vec{k}) R^2 \sin \phi d \phi d \theta,
+\end{aligned}
+$$
+where $T$ is the $\theta \phi$-region corresponding to $S$.
+}
+\begin{proof}
+  We can define an infentesmial bit of area as $d\vec{A} = \vec{n} dA$.
+  We know that $\vec{n} = <x,y,z>$ Where upon unitizing and substituting for spherical coordinates
+  we get $\vec{n} = <\cos \theta \sin \phi, \sin \theta \sin \phi, \cos \phi>$.
+  Our infentesimal area is $dA = R d\phi \cdot R \sin \phi d\theta$. Such that $d\vec{A} = <\cos \theta \sin \phi, \sin \theta \sin \phi, \cos \phi> R^2 \sin \phi d\theta d\phi$.
+  Therefore, $\int_S \vec{F} \cdot d\vec{A} = \int \vec{F}(R, \theta, \phi) \cdot(\sin \phi \cos \theta \vec{i}+\sin \phi \sin \theta \vec{j}+\cos \phi \vec{k}) R^2 \sin \phi d \phi d \theta$.
+\end{proof}
+\qs{}{
+  Find $\int_S \vec{F} \cdot d \vec{A}$, where $\vec{F}=z^2 \vec{k}$ and $S$ is the portion of the sphere $x^2+y^2+z^2=25$ above the $x y$-plane, oriented outward.
+}
+\sol \\
+We can assume that the bottom disk is open.
+Our $d\vec{A} = <\cos \theta \sin \phi, \sin \theta \sin \phi, \cos \phi> (25) \sin \phi d\theta d\phi$.
+Our $\vec{F} = <0,0,25\cos^2 \phi>$. Such that $\int \vec{F} \cdot d\vec{A} = \int_0^{2\pi} \int_0^{\frac{\pi}{2}} 25^2 \cos^2 \phi \sin \phi d\phi d\theta = \frac{625\pi}{2}$.
+\qs{}{
+  Write an integral (do not evaluate) for the flux through the spherical surface $S$, oriented away. $\vec{F}(x, y, z)=x \vec{i}+y \vec{j}$
+  $S$ : radius 3 , above the cone $\phi=\pi / 4$.
+}
+\sol \\
+We define $S$ as the spherical cap only. $d\vec{A} = <\cos \theta \sin \phi, \sin \theta \sin \phi, \cos \phi> (9) \sin \phi d\theta d\phi$.
+Our $\vec{F} = <x,y,0>=<(3) \sin \phi \cos \theta, (3) \sin \phi \sin \theta ,0>$. Such that $\int \vec{F} \cdot d\vec{A} = \int_0^{2\pi} \int_0^{\frac{\pi}{4}} 27 \sin^3 \phi d\phi d\theta$.
 \end{document}
