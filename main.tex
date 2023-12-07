@@ -1922,4 +1922,279 @@ Our $\vec{F} = <0,0,25\cos^2 \phi>$. Such that $\int \vec{F} \cdot d\vec{A} = \i
 \sol \\
 We define $S$ as the spherical cap only. $d\vec{A} = <\cos \theta \sin \phi, \sin \theta \sin \phi, \cos \phi> (9) \sin \phi d\theta d\phi$.
 Our $\vec{F} = <x,y,0>=<(3) \sin \phi \cos \theta, (3) \sin \phi \sin \theta ,0>$. Such that $\int \vec{F} \cdot d\vec{A} = \int_0^{2\pi} \int_0^{\frac{\pi}{4}} 27 \sin^3 \phi d\phi d\theta$.
+\subsection{The Divergence of a Vector Field}
+\dfn{Divergence}{
+  Total flux change $=$ (field change in $\mathrm{X}$ direction $)+($ field change in $\mathrm{Y}$ direction $)+($ field change in $\mathrm{Z}$ direction $)$ \\
+  In the cartesian coordinate system it is defined as
+  $$ \operatorname{div} \vec{F}=\frac{\partial F_1}{\partial x}+\frac{\partial F_2}{\partial y}+\frac{\partial F_3}{\partial z} $$
+  Sometimes written as
+  $$ \operatorname{div} \vec{F}=\nabla \cdot \vec{F} $$
+}
+\noindent
+Visually we can look at different points in the vector field to see if the vectors
+nearby are expanding or compression. Divergence at each point can be positive: expanding, negative: shrinking, or zero: no change.
+\ex{Sign of Divergence}{
+  \imgg{ex19.2.1}{0.6}
+  $\operatorname{div} \vec{F}(1,1) = 0$, vectors come and leave the same magnitude. \\
+  \imgg{ex19.2.2}{0.6}
+  $\operatorname{div} \vec{F}(1,1) = 0 = -$, vectors shrink.
+}
+\qs{}{
+  Given $\vec{F}=x \vec{\imath}+y \vec{\jmath}$. Find $\operatorname{div} \vec{F}(0,0)$ and $\operatorname{div} \vec{F}(-2,1)$
+}
+\sol
+$\operatorname{div} \vec{F}(0,0) = \frac{\partial F_1}{\partial x}+\frac{\partial F_2}{\partial y} = 1 + 1 = 2$
+
+\nt{
+  If a point has positive divergence it is a source for the vector field, if it has negative divergence
+  it is a sink. If the divergence is zero it is called incompressible or divergent free.
+}
+
+\subsection{The Divergence Theorem}
+Terminology. The boundary of a solid region may be thought of as the skin between the interior of the region and the space around it.
+A surface which is the boundary of a solid region is called a closed surface.
+\dfn{The Divergence Theorem}{
+If $W$ is a solid region whose boundary, $S$, is a piecewise smooth surface, and $\vec{F}$ is a smooth vector field on an open region containing $W$ and $S$, then
+$$ \int_S \vec{F} \cdot d \vec{A}=\int_W \operatorname{div} \vec{F} d V $$
+where $S$ is given the outward orientation.
+}
+
+\qs{}{
+  Do the following without and with the divergence theorem.
+  Find the flux of the vector field $\vec{F}=y \vec{j}+(3 x+z) \vec{k}$ through the closed rectangular cube, of side length 1 , shown to the right, oriented outward.
+}
+\sol \\
+Taking the flux of each of the surfaces (6 in total).
+We get that $\int_{\text{top}} \vec{F} \cdot d\vec{A} = \frac{5}{2}$,
+$\int_{\text{bottom}} \vec{F} \cdot d\vec{A} = -\frac{3}{2}$,
+$\int_{\text{right}} \vec{F} \cdot d\vec{A} = 1$,
+$\int_{\text{left}} \vec{F} \cdot d\vec{A} = 0$,
+$\int_{\text{front}} \vec{F} \cdot d\vec{A} = 0$,
+$\int_{\text{back}} \vec{F} \cdot d\vec{A} = 0$.
+Such that $\int_S \vec{F} \cdot d\vec{A} = 2$.
+\double
+With the divergence theorem, we have that $\int_S \vec{F} \cdot d\vec{A} = \int_W \operatorname{div} \vec{F} dV$.
+Given that $\vec{F} = <0,y,3x+z>$, we have that $\operatorname{div} \vec{F} = 2$.
+
+\qs{}{
+  Find the flux of $\vec{F}=x^3 \vec{i}+y^3 \vec{j}+z^3 \vec{k}$ through the closed surface bounding the solid region $x^2+y^2 \leq 4$, $0 \leq z \leq 5$, oriented outward.
+}
+\sol \\
+Given the closed surface of a sphere of radius 2, bounded by $0 \le z \le 5$.
+We use the divergence theorem to get $\int_S \vec{F} \cdot d\vec{A} = \int_W \operatorname{div} \vec{F} dV$.
+We have that $\operatorname{div} \vec{F} = 3x^2 + 3y^2 + 3z^2 \implies 3 \int \int \int (x^2+y^2+z^2) dV = 3 \int_0^{2\pi} \int_0^2 \int _0^5 (r^2+z^2) dz dr d\theta = 3(20+\frac{250}{3})2\pi$.
+
+\qs{}{
+  For $\vec{F}=(2 x+\sin z) \vec{i}+(x z-y) \vec{j}+\left(e^x+2 z\right) \vec{k}$, find the flux of $\vec{F}$ out of the closed silo-shaped region within the cylinder $x^2+y^2=1$, below the hemisphere $z=1+\sqrt{1-x^2-y^2}$, and above the $x y$-plane.
+}
+\sol \\
+Where $z-1 = \sqrt{1-x^2-y^2} \implies x^2+y^2+(z-1)^2 = 1$.
+Such that we have a sphere of radius 1 centered at $(0,0,1)$ that caps off the cylinder.
+Finding $\operatorname{div} \vec{F} = 2 -1 + 2 = 3$.
+$\int_S \vec{F} \cdot d\vec{A} = \int_W \operatorname{div} \vec{F} dV = 3 \int_W dV$.
+Which is simply 3 times the volume of the cylinder and half the sphere.
+As such we define the flux $ = 3[\pi r^2 h + (\frac{4}{3}\pi r^3)2]$.
+Finding the point of intersetion $z=1+\sqrt{1-x^2-y^2} = z = 1 + \sqrt{1-1} = 1$.
+Therefore flux is $3[\pi (1)^2 (1) + (\frac{4}{3}\pi (1)^3)/2] = 5\pi$.
+
+\qs{}{
+  Find the flux out of the sphere of radius two with center at the origin, oriented outward. For the vector field $\vec{F}=x y^2 \vec{\imath}+y z^2 \vec{\jmath}+x^2 z \vec{k}$.
+}
+\sol \\
+Finding $\operatorname{div} \vec{F} = y^2 + z^2 + x^2$.
+We subsequently know we have to integrate in spherical coordinates,
+therefore $\operatorname{div} \vec{F} = \rho^2$.
+We have $ \int_S \vec{F} \cdot d\vec{A} = \int_W \operatorname{div} \vec{F} dV = \int_0^{2\pi} \int_0^{\pi} \int_0^2 \rho^4 \sin \phi d\rho d\phi d\theta = \frac{128\pi}{5}$.
+
+
+\section{20 name}
+\subsection{The Curl of a Vector Field}
+  The circulation density of a smooth vector field $\vec{F}$ at $(x, y, z)$ around the direction of the unit vector $\vec{n}$ is defined, provided the limit exists, to be
+  $$ \operatorname{circ}_{\vec{n}} \vec{F}(x, y, z)=\lim _{\text {Area } \rightarrow 0} \frac{\text { Circulation around } C}{\text { Area inside } C}=\lim _{\text {Area } \rightarrow 0} \frac{\int_C \vec{F} \cdot d \vec{r}}{\text { Area inside } C}, $$
+  The circle $C$ is in the plane perpendicular to $\vec{n}$ and oriented by the right-hand rule.
+
+\dfn{Curl}{
+  The curl of a smooth vector field $\vec{F}$, written curl $\vec{F}$, is the vector field with the following properties: \\
+- The direction of $\operatorname{curl} \vec{F}(x, y, z)$ is the direction $\vec{n}$ for which $\operatorname{circ}_{\vec{n}} \vec{F}(x, y, z)$ is the greatest. \\
+- The magnitude of $\operatorname{curl} \vec{F}(x, y, z)$ is the circulation density of $\vec{F}$ around that direction. If the circulation density is zero around every direction, then we define the curl to be $\overrightarrow{0}$.
+$$\operatorname{curl} = \nabla \times \vec{F} = \left(\frac{\partial F_3}{\partial y}-\frac{\partial F_2}{\partial z}\right) \vec{i}+\left(\frac{\partial F_1}{\partial z}-\frac{\partial F_3}{\partial x}\right) \vec{j}+\left(\frac{\partial F_2}{\partial x}-\frac{\partial F_1}{\partial y}\right) \vec{k}$$
+
+}
+\nt{
+  $\operatorname{curl} \vec{F}$ is related to circulation as follows, $\operatorname{curl} \vec{F} \cdot \vec{n}=\operatorname{circ}_{\vec{n}} \vec{F}$. \\
+  - Paddle wheel spin fastest if its axis aligns with the direction of curl.\\
+  Its max rate of rotation will be the magnitude of the curl.
+}
+\qs{}{
+  A) $ \operatorname{curl}(-2 z \vec{i}-z \vec{j}+x y \vec{k}) $ \\
+  B) $ \operatorname{circ}_{\vec{k}}(-2 z \vec{i}-z \vec{j}+x y \vec{k}) $
+}
+\sol \\
+A) $\operatorname{curl}(-2 z \vec{i}-z \vec{j}+x y \vec{k}) = <x+1, -y-2, 0>$ \\
+B) Where $\operatorname{circ}_{\vec{k}} \vec{F} = \vec{k} \cdot \operatorname{circ} \vec{F} = <0,0,1> \cdot <x+1,-y-2,0> = 0$
+\qs{}{
+  Three small circles, $C_1, C_2$, and $C_3$, each with radius 0.1 and centered at the origin, are in the $x y-, y z-$, and $x z$-planes, respectively.
+  The circles are oriented counterclockwise when viewed from the positive $z_{-}, x-$, and $y$-axes, respectively. A vector field, $\vec{F}$, has circulation around $C_1$ of $0.02 \pi$, around $C_2$ of $0.5 \pi$, and around $C_3$ of $3 \pi$.
+  Estimate $\operatorname{curl} \vec{F}$ at the origin.
+}
+\sol \\
+Given $C_1$ is in the $xy$-plane counterclockwise, we have that $\vec{n} = \khat$.
+$C_2$ is in the $yz$-plane counterclockwise, we have that $\vec{n} = \ihat$.
+$C_3$ is in the $xz$-plane counterclockwise, we have that $\vec{n} = \jhat$.
+Circulation is simply a line integral,
+$\oint_{C_1} \vec{F} \cdot d\vec{r} = 0.02\pi$,
+$\oint_{C_2} \vec{F} \cdot d\vec{r} = 0.5\pi$,
+$\oint_{C_3} \vec{F} \cdot d\vec{r} = 3\pi$.
+Given that $\oint_C \vec{F} \cdot d\vec{r} / \text{area}$ = circulation density.
+$C_1$, $C_2$, and $C_3$ have circulation density 2, 50, 300 respectively.
+Given that $\vec{n} \cdot \operatorname{curl} \vec{F} = \operatorname{circ}_{\vec{n}} \vec{F}$.
+We have that $\khat \cdot \operatorname{curl} \vec{F} = 2$, $\ihat \cdot \operatorname{curl} \vec{F} = 50$, $\jhat \cdot \operatorname{curl} \vec{F} = 300$.
+Let $\operatorname{curl} \vec{F}(0,0,0) = <a,b,c>$. We have that $c = 2$, $a = 50$, $b = 300$. Therefore, $\operatorname{curl} \vec{F}(0,0,0) = <50,300,2>$.
+
+\subsection{Stokes' Theorem}
+\dfn{Boundarys}{The boundary of a surface, $S$, is the curve (or curves) $C$ running around the edge of $S$ (like the hem on clothing). Once an orientation for $S$ has been chosen, the corresponding orientation for $C$ is determined by the right-hand rule.}
+\ex{Two oreintations on the surface and the induced orientation it causes for the boundary}{
+  A disc, our $S$, with boundary a circle, our $C$.
+  We can define a circle with $C$ as the boundary going CCW with normal up or CW with normal down.
+  A hemisphere, our $S$, with boundary a circle, our $C$.
+  We can define a circle with $C$ as the boundary (base of $S$) going CCW with normal radially out, or CW with normal radially in.
+}
+\dfn{Stokes' Theorem}{
+  If $S$ is a smooth oriented surface with piecewise smooth, oriented boundary $C$, and if $\vec{F}$ is a smooth vector field on a solid region containing $S$ and $C$, then
+  $$ \int_C \vec{F} \cdot d \vec{r}=\int_S \operatorname{curl} \vec{F} \cdot d \vec{A} $$
+  The orientation of $C$ is determined from the orientation of $S$ according to the right-hand rule.
+}
+\proof (or somewhat of a proof LOL).
+Let a surface $S$ be defined with a $C$ oriented CCW, such that its normal is oriented upwards.
+Taking an infentesimal piece of $S$ we can look at the circulation at the infentesimal piece as $\operatorname{circ}_{\vec{n}} \vec{F} \cdot dA$.
+Looking at another infentesimal piece, we can see that the circulation is going the same way, but is subsequently cancelled out by adjacent infentesimal pieces.
+Meaning that the circulation around the boundary is the same as the circulation around the surface. $\qed$
+
+\qs{}{
+  If $\operatorname{curl} \vec{F}=\vec{k}$, find the circulation of $\vec{F}$ around $C$, a circle of radius 1 , centered at the origin, with \\
+(a) $C$ in the $x y$-plane, oriented counterclockwise when viewed from above. \\
+(b) $C$ in the $y z$-plane, oriented counterclockwise when viewed from the positive $x$-axis.
+}
+\sol \\
+A) Given that the boundary is a circle oriented counter clockwise, we have that the normal is $\khat$.
+$\oint \vec{F} \cdot d\vec{r} = \int_S \operatorname{curl}\vec{F} \cdot d\vec{A} = \int \int <0,0,1>\cdot<0,0,1> dA = \pi$
+\double
+B) Given that the boundary is a circle oriented counter clockwise, we have that the normal is $\ihat$.
+$\oint \vec{F} \cdot d\vec{r} = \int_S \operatorname{curl}\vec{F} \cdot d\vec{A} = \int \int <0,0,1>\cdot<1,0,0> dA = 0$
+
+\qs{}{
+  Calculate the circulation $\int_C \vec{F} \cdot d \vec{r}$, directly and with Stokes' Theorem $\vec{F}=y \vec{i}-x \vec{j}$ and $C$ is the boundary of $S$, the part of the surface $z=4-x^2-y^2$ above the $x y$-plane, oriented upward.
+}
+\sol \\
+Given that the surface is oriented upward, we have that the curve is oriented counter clockwise.
+Parameterizating the curve we know that the radius is 2, such that $x = 2 \cos t$ and $y = 2 \sin t$. Where $0 \le t \le 2\pi$.
+Such that $\vec{r}(t) = <2\cos t, 2\sin t>$, our $\vec{F}(\vec{r}(t)) = <2\sin t, -2\cos t>$, and our $\vec{r}'(t) = <-2\sin t, 2\cos t>$.
+Therefore $\int_C \vec{F} \cdot d\vec{r} = \int_0^{2\pi} <2\sin t, -2\cos t> \cdot <-2\sin t, 2\cos t> dt = -8\pi$.
+\double
+Using Stokes' Theorem we have that $\int_C \vec{F} \cdot d\vec{r} = \int_S \operatorname{curl} \vec{F} \cdot d\vec{A}$.
+$\vec{F} = <y,-x,0> \implies \operatorname{curl} \vec{F} = <0,0,-2>$.
+Our $d\vec{A} = <\frac{\partial z}{\partial x}, \frac{\partial z}{\partial y}, -1> dA = <2x, 2y, 1> dx dy$.
+Therefore, $\int_S \operatorname{curl} \vec{F} \cdot d\vec{A} = \int \int <0,0,-2> \cdot <2x, 2y, 1> dx dy = -8\pi$.
+
+\qs{}{
+  (a) Let $\vec{F}=y \vec{i}+z \vec{j}+x \vec{k}$. Find curl $\vec{F}$. \\
+  (b) Calculate $\int_C \vec{F} \cdot d \vec{r}$ where $C$ is \\
+
+  The triangle obtained by tracing out the path $(2,0,0)$ to $(2,0,5)$ to $(2,3,5)$ to $(2,0,0)$.
+}
+
+\sol \\
+A) $\operatorname{curl} \vec{F} = <-1,-1,-1>$
+\double
+B)
+The region is a triangle on the $yz$-plane where $x=2$. Such that the normal is $-\ihat$.
+$\oint_C \vec{F} \cdot d\vec{r} = \int_S \operatorname{curl} \vec{F} \cdot d\vec{A} = \int \int <-1,-1,-1> \cdot <-1,0,0> dA = -15/2$
+
+\section{21 name}
+\setcounter{subsection}{2}
+\subsection{Flux Integrals Over Parameterizd Surfaces}
+\dfn{The Flux of a Vector Field Through a Parameterized Surface}{
+  The flux of a smooth vector field $\vec{F}$ through a smooth oriented surface $S$ parameterized by $\vec{r}=\vec{r}(s, t)$, where $(s, t)$ varies in a parameter region $R$, is given by
+$$ \int_S \vec{F} \cdot d \vec{A}=\int_R \vec{F}(\vec{r}(s, t)) \cdot\left(\frac{\partial \vec{r}}{\partial s} \times \frac{\partial \vec{r}}{\partial t}\right) d s d t$$
+
+We choose the parameterization so that $\partial \vec{r} / \partial s \times \partial \vec{r} / \partial t$ is never zero and points in the direction of $\vec{n}$ everywhere.
+}
+\proof
+We have two vectors on a parameterized surface such that we vary $s$ and $t$.
+$\vec{v} = \vec{r}(s + \Delta s, t) - \vec{r}(s,t)$ and $\vec{u} = \vec{r}(s, t + \Delta t) - \vec{r}(s,t)$.
+We can say that $\vec{v} = \frac{\partial \vec{r}}{\partial s} \Delta s$ and $\vec{u} = \frac{\partial \vec{r}}{\partial t} \Delta t$.
+Crossing the two we get $\vec{v} \times \vec{u} = (\frac{\partial \vec{r}}{\partial s} \times \frac{\partial \vec{r}}{\partial t}) \Delta s \Delta t$.
+Such that $d\vec{A} = (\frac{\partial \vec{r}}{\partial s} \times \frac{\partial \vec{r}}{\partial t}) ds dt$. Where the cross product is chosen to point in the direction of $\vec{n}$. $\qed$
+\qs{}{
+  Compute $d \vec{A}$ for the given parameterization of a surface.
+  $$ x=\sin t, \quad y=\cos t, \quad z=s+t$$
+}
+\sol \\
+We have $\vec{r}(s,t) = <\sin t, \cos t, s + t>$.
+Where taking the partials we get $\frac{\partial \vec{r}}{\partial s} = <0,0,1>$ and $\frac{\partial \vec{r}}{\partial t} = <\cos t, -\sin t, 1>$.
+Crossing the two we get $\frac{\partial \vec{r}}{\partial s} \times \frac{\partial \vec{r}}{\partial t} = <\sin t, \cos t, 0>$.
+Forming our $d\vec{A} = <\sin t, \cos t, 0> ds dt$.
+
+\qs{}{
+  Compute the flux of the vector field given, through the parameterized surface $S$.
+$\vec{F}=x \vec{i}+y \vec{j}$ and $S$ is oriented downward and given, for $0 \leq s \leq 1,0 \leq t \leq 1$, by
+$$ x=2 s, \quad y=s+t, \quad z=1+s-t $$
+}
+\sol \\
+We have $\vec{r}(s,t) = <2s, s+t, 1+s-t>$.
+Where taking the partials we get $\frac{\partial \vec{r}}{\partial s} = <2,1,1>$ and $\frac{\partial \vec{r}}{\partial t} = <0,1,-1>$.
+Crossing the two we get $\frac{\partial \vec{r}}{\partial s} \times \frac{\partial \vec{r}}{\partial t} = <-2,2,2>$.
+Since our surface is oriented downward, we take the negative of the cross product, $<2,-2,-2>$.
+Forming our integral $\int_0^1 \int_0^1 (2s-2t) ds dt = \text{ANS}$.
+\qs{}{
+  B) $\vec{F}=z \vec{\imath}+y \vec{\jmath}+x \vec{k}$ and $S$ is orientated upward and given by $x=s \cos t \quad y=s \sin t \quad z=t$ $0 \leq \mathrm{s} \leq 1, \quad 0 \leq \mathrm{t} \leq \pi$
+}
+\sol \\
+We have $\vec{r}(s,t) = <s \cos t, s \sin t, t>$.
+Where taking the partials we get $\frac{\partial \vec{r}}{\partial s} = <\cos t,\sin t,0>$ and $\frac{\partial \vec{r}}{\partial t} = <-s\sin t,s\cos t,1>$.
+Crossing the two we get $\frac{\partial \vec{r}}{\partial s} \times \frac{\partial \vec{r}}{\partial t} = <\sin t, -\cos t, s>$.
+Our vector field $\vec{F} = <t, s\sin t, s\cos t>$.
+Forming our integral $\int_0^\pi \int_0^1 (t\sin t - s\cos t \sin t + s^2 \cos t) ds dt = \text{ANS}$.
+\qs{}{
+  Use parameterizations to verify the formulas developed in section 19.2 \\
+  Suppose the surface $S$ is the part of the graph of $z=f(x, y)$ above a region $\mathrm{R}$ in the $x y$-plane, and suppose $\mathrm{S}$ is oriented upward. The flux of $\vec{F}$ through $\mathrm{S}$ is
+$$ \int_S \vec{F} \cdot d \vec{A}=\int_R \vec{F}(x, y, f(x, y)) \cdot\left(-f_x \vec{i}-f_y \vec{j}+\vec{k}\right) d x d y$$
+}
+\sol \\
+Suppose we have a function $z = f(x,y)$. We can parameterize it as $\vec{r}(x,y) = <x,y,f(x,y)>$.
+Where taking the partials we get $\frac{\partial \vec{r}}{\partial x} = <1,0,f_x>$ and $\frac{\partial \vec{r}}{\partial y} = <0,1,f_y>$.
+Crossing the two we get $\frac{\partial \vec{r}}{\partial x} \times \frac{\partial \vec{r}}{\partial y} = <-f_x,-f_y,1>$.
+Such that $d\vec{A} = <-f_x,-f_y,1> dx dy$.
+\qs{}{
+  Use parameterizations to verify the formulas developed in section 19.2 \\
+  The flux of $\vec{F}$ through the cylindrical surface $\mathrm{S}$, of radius $\mathrm{R}$ and oriented away from the $z$-axis, is given by
+  $$ \int_S \vec{F} \cdot d \vec{A}=\int_T \vec{F}(R, \theta, z) \cdot(\cos \theta \vec{i}+\sin \theta \vec{j}) R d z d \theta $$
+  where $\mathrm{T}$ is the $\theta z$-region corresponding to $S$.
+}
+\sol \\
+Suppose we have a cylinder of radius $R$. We can parameterize it as $\vec{r}(z,\theta) = <R\cos \theta,R\sin \theta,z>$.
+Where taking the partials we get $\frac{\partial \vec{r}}{\partial z} = <0,0,1>$ and $\frac{\partial \vec{r}}{\partial \theta} = <-R\sin \theta,R\cos \theta,0>$.
+Crossing the two we get $\frac{\partial \vec{r}}{\partial \theta} \times \frac{\partial \vec{r}}{\partial z} = <R\cos \theta,R\sin \theta,0>$.
+Such that $d\vec{A} = <R\cos \theta,R\sin \theta,0> dz d\theta$.
+
+\section*{Final exam!!!!}
+shapes of surfaces \& their contours (ch 12) \\
+*planes (ch 12-14, ch 17) using partials, normals, parameterizations \\
+tangent planes (note: linearization or linear approx to a surface) \\
+cross, dot product (geo \& algebraically) \\
+partials, chain rule, directional derivative (remember $\nabla F \cdot u$ ) (ch 14) \\
+$\nabla F $ is orthoginal to contour lines. $\nabla F $ is a longer vector if contours are closer together. \\
+crit points, and whatnot. Lagrange multipliers (ch 15)\\
+double integrals, cartesian/rectangular, polar
+triple intgrals, *, cylinderical, spherical (ch 16) \\
+parameterization (lines, circles, general "lazy") (ch 17) \\
+line integrals, 4 step with parameterizing, FTL, stokes thm (ch 18) \\
+flux/surface integrals, divergence thm, using normals, stokes thm (ch 19 \& 20) \\
+\textbf{sections to eliminate} \\
+4d functions (12.5), limits (12.6), word problems (13.2), 3D gradient (14.5),
+taylor polynomials, only linear approx (14.7), differentiable (14.8),
+lagrange multipliers, Critical still on exam (15.3), motion/vel (17.2),
+flow lines (17.4), flux over param (21.3).
+
+
 \end{document}
